@@ -1,0 +1,108 @@
+/* 样式定义主页头像的容器 */
+.homepageavatar {
+  display: flex;
+  justify-content: start;
+  text-align: center;
+  padding: 2px;
+  margin-right: 10%;
+}
+
+/* 设置全局文字字体 */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+/* 导航栏样式 */
+.navbar {
+  display: flex;
+
+  align-items: center; /* 垂直居中头像和导航项 */
+  background-color: rgba(153, 152, 152, 0.596);
+  padding: 0px;
+}
+
+/* 导航项的样式 */
+.nav-item {
+  position: relative;
+  padding: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+/* 鼠标悬停时导航项的背景变化 */
+.nav-item:hover {
+  background-color: #575757;
+}
+
+/* 下拉菜单的基础样式 */
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 200%;
+  background-color: rgba(153, 152, 152, 0.596);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  white-space: nowrap;
+}
+
+/* 显示下拉菜单 */
+.nav-item:hover .dropdown {
+  display: block;
+}
+
+/* 下拉菜单链接的样式 */
+.dropdown a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* 鼠标悬停时下拉菜单链接的背景变化 */
+.dropdown a:hover {
+  background-color: #848484;
+}
+
+/* 页脚标题样式 */
+.footer-title {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* 选择合适的字体-family */
+  font-size: 24px; /* 字体大小 */
+  font-weight: bold; /* 字体加粗 */
+  color: #333; /* 字体颜色 */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* 文字阴影效果 */
+  margin: 0; /* 去掉默认的段落上、下间距 */
+}
+
+/* 页脚部分样式 */
+.footer {
+  text-align: center;
+  padding: 10px;
+  font-size: 12px; /* 字体大小 */
+}
+/* 内容区域样式 */
+.content {
+  display: none; /* 默认隐藏内容 */
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.button {
+  padding: 10px 15px;
+  margin: 5px;
+  cursor: pointer;
+
+  background-color: #686868;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.button-container {
+  display: flex; /* 使用Flex布局 */
+  justify-content: center; /* 居中 */
+}

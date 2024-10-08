@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Number guessing game</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="Black leaf research Institute.css"
+    />
+    <script src="Black leaf research Institute.js"></script>
+    <!-- 引用JavaScript文件 -->
+    <style>
+      /* 页面基本样式 */
+      body {
+        margin: 0;
+      }
+    </style>
+    <style>
+      /* 页面基本样式 */
+      body {
+        margin: 0;
+        font-family: sans-serif; /* 全局字体 */
+      }
+
+      .navbar a {
+        font-family: sans-serif; /* 确保导航栏字体一致 */
+        color: inherit; /* 颜色继承自父元素 */
+        text-decoration: none; /* 去掉链接下划线 */
+      }
+
+      /* 其它样式 */
+      .form input[type="number"] {
+        width: 200px;
+      }
+
+      .lastResult {
+        color: white;
+        padding: 3px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 导航栏 -->
+    <div class="navbar">
+      <div class="homepageavatar">
+        <img
+          src="https://kangwenchang.com/logo.png"
+          alt="黑树叶"
+          width="60px"
+          height="60px"
+        />
+        <div class="footer">
+          <p class="footer-title">黑树叶研究所</p>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="Black leaf research Institute.html">首页</a>
+      </div>
+      <div class="nav-item">
+        研究
+        <div class="dropdown">
+          <a href="#">编程语言</a>
+          <a href="#">研究结果</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        游戏
+        <div class="dropdown">
+          <a href="Number-guessing-game-start.html">猜数字</a>
+          <a href="#">贪吃蛇</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        帮助
+        <div class="dropdown">
+          <a href="#">联系我们</a>
+          <a href="#">加入我们</a>
+        </div>
+      </div>
+    </div>
+
+    <h1>Number guessing game</h1>
+
+    <p>
+      We have selected a random number between 1 and 100. See if you can guess
+      it in 10 turns or fewer. We'll tell you if your guess was too high or too
+      low.
+    </p>
+
+    <div class="form">
+      <label for="guessField">Enter a guess: </label>
+      <input
+        type="number"
+        min="1"
+        max="100"
+        required
+        id="guessField"
+        class="guessField"
+      />
+      <input type="submit" value="Submit guess" class="guessSubmit" />
+    </div>
+
+    <div class="resultParas">
+      <p class="guesses"></p>
+      <p class="lastResult"></p>
+      <p class="lowOrHi"></p>
+    </div>
+
+    <script>
+      // 生成一个随机数
+      let randomNumber = Math.floor(Math.random() * 100) + 1;
+
+      // 获取元素
+      const guesses = document.querySelector(".guesses");
+      const lastResult = document.querySelector(".lastResult");
+      const lowOrHi = document.querySelector(".lowOrHi");
+      const guessSubmit = document.querySelector(".guessSubmit");
+      const guessField = document.querySelector(".guessField");
+
+      let guessCount = 1;
+      let resetButton;
+
+      // 检查用户的猜测
+      function checkGuess(event) {
+        event.preventDefault(); // 阻止默认的表单提交
+
+        const userGuess = Number(guessField.value);
+        if (guessCount === 1) {
+          guesses.textContent = "Previous guesses: ";
+        }
+        guesses.textContent += `${userGuess} `;
+
+        if (userGuess === randomNumber) {
+          lastResult.textContent = "Congratulations! You got it right!";
+          lastResult.style.backgroundColor = "green";
+          lowOrHi.textContent = "";
+          setGameOver();
+        } else if (guessCount === 10) {
+          lastResult.textContent = "!!!GAME OVER!!!";
+          lowOrHi.textContent = "";
+          setGameOver();
+        } else {
+          lastResult.textContent = "Wrong!";
+          lastResult.style.backgroundColor = "red";
+          if (userGuess < randomNumber) {
+            lowOrHi.textContent = "Last guess was too low!";
+          } else if (userGuess > randomNumber) {
+            lowOrHi.textContent = "Last guess was too high!";
+          }
+        }
+
+        guessCount++;
+        guessField.value = "";
+        guessField.focus();
+      }
+
+      // 绑定事件
+      guessSubmit.addEventListener("click", checkGuess);
+    </script>
+
+    <!-- 页脚部分 -->
+    <div
+      style="
+        background-color: rgba(153, 152, 152, 0.596);
+        text-align: center;
+        padding: 40px;
+        font-size: 12px;
+      "
+    >
+      <div class="footer">
+        <p class="footer-title">黑树叶研究所</p>
+      </div>
+      <a href="https://kangwenchang.com/">友情链接</a>
+      <p></p>
+    </div>
+  </body>
+</html>

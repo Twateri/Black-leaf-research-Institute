@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Backstage</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        background-color: #eee;
+      }
+      * {
+        border: 1px solid black;
+      }
+      .flex {
+        display: flex;
+      }
+      .yinying {
+        box-shadow: rgb(0 0 0 / 20%) 0px 2px 1px -1px,
+          rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
+      }
+      .white {
+        background-color: white;
+      }
+      .flex1 {
+        flex: 1;
+      }
+      .column {
+        flex-direction: column;
+      }
+    </style>
+  </head>
+  <body class="flex">
+    <!-- 侧边栏-->
+    <div style="width: 200px" class="white">侧边栏</div>
+    <!--主区域-->
+    <div class="flex1 flex column">
+      <!--头部栏-->
+      <div style="height: 60px" class="white yinying">头部栏</div>
+      <!--内容区-->
+      <div class="flex1 flex">
+        <!--左区-->
+        <div style="flex: 3" class="flex column">
+          <!--数据区-->
+          <div class="flex">
+            <div style="height: 100px" class="flex1 white">数据区</div>
+            <div style="height: 100px" class="flex1 white"></div>
+            <div style="height: 100px" class="flex1 white"></div>
+            <div style="height: 100px" class="flex1 white"></div>
+          </div>
+          <!--列表区-->
+          <div style="height: 300px" class="white">列表区</div>
+          <div style="height: 300px" class="white">列表区</div>
+        </div>
+        <!--右区-->
+        <div style="flex: 1" class="flex column">
+          <!--提示区-->
+          <div style="height: 100px" class="white">提示区</div>
+          <!--消息区-->
+          <div style="height: 500px" class="white">消息区</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
